@@ -1,29 +1,33 @@
 package forum.service;
 
 import forum.model.Post;
-import forum.repositoy.PostMem;
+import forum.store.PostRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class PostService {
 
-    private final PostMem postMem;
+    private final PostRepository postRepository;
 
-    public PostService(PostMem postMem) {
-        this.postMem = postMem;
+    public PostService(PostRepository postRepository) {
+        this.postRepository = postRepository;
     }
 
     public Collection<Post> getAllPost() {
-        return postMem.getAllPosts();
+        List<Post> rsl = new ArrayList<>();
+        postRepository.findAll().forEach(rsl::add);
+        return rsl;
     }
 
     public void addPost(Post post) {
-        postMem.addPost(post);
+        postRepository.save(post);
     }
 
     public Post findPostById(int id) {
-        return postMem.findPostById(id);
+        return postRepository.findById(id).get();
     }
 }

@@ -1,15 +1,20 @@
 package forum.model;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
     private String created;
+    @ElementCollection
     private final List<String> comment = new ArrayList<>();
 
     public static Post of(String name) {
@@ -17,6 +22,7 @@ public class Post {
         post.name = name;
         return post;
     }
+    public Post() {}
 
     public int getId() {
         return id;
