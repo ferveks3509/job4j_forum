@@ -1,6 +1,9 @@
 package forum.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +16,7 @@ public class Post {
     private int id;
     private String name;
     private String description;
-    private String created;
+    private Timestamp created = Timestamp.valueOf(LocalDateTime.now());
     @ElementCollection
     private final List<String> comment = new ArrayList<>();
 
@@ -48,11 +51,11 @@ public class Post {
         this.description = description;
     }
 
-    public String getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 

@@ -32,7 +32,9 @@
         <h4>Форум job4j</h4>
     </div>
     <div>
-        <div class="text-dark"> Login as :ЮЗЕР</div>
+        <div class="text-dark"> Login as :${user.username}
+            <a href="<c:url value="/login?logout=true"/>">Выход</a>
+        </div>
         <a href="<c:url value='/create'/>">Добавить инцидент</a>
     </div>
     <div class="row">
@@ -59,9 +61,9 @@
                     </td>
                     <td><c:out value="${post.created}"/></td>
                     <td>
-                    <a href="<c:url value='/edit?id=${post.id}'/>">
-                        <i class="fa fa-edit mr-3"></i>
-                    </a>
+                        <a href="<c:url value='/edit?id=${post.id}'/>">
+                            <i class="fa fa-edit mr-3"></i>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>

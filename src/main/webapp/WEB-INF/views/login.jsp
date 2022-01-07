@@ -25,6 +25,11 @@
     <div class="row">
         <h4>Логин</h4>
     </div>
+    <c:if test="${not empty errorMessage}">
+        <div style="color:#ff0000; font-weight: bold; margin: 30px 0px;">
+                ${errorMessage}
+        </div>
+    </c:if>
     <a href="/reg" class="btn btn-dark" role="button">Регистрация</a>
     <form name='login' action="<c:url value='/login'/>" method='POST'>
         <div class="form-group">

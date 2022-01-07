@@ -19,8 +19,6 @@ public class PostMem {
         String  formatDate = now.format(formatter);
         Post post = Post.of("продаю ладу");
         Post post1 = Post.of("Общение");
-        post1.setCreated(formatDate);
-        post.setCreated(formatDate);
         post1.setDescription("Природа");
         post.setDescription("Лада 2020 года");
         post.setId(0);
@@ -37,10 +35,6 @@ public class PostMem {
     }
 
     public void addPost(Post post) {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String  formatDate = now.format(formatter);
-        post.setCreated(formatDate);
         if (post.getId() == 0) {
             post.setId(postId.incrementAndGet());
         }
