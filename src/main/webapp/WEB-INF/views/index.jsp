@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -59,7 +60,9 @@
                     <td>
                         <a href="<c:url value="/post?id=${post.id}"/>">*</a>
                     </td>
-                    <td><c:out value="${post.created}"/></td>
+                    <td>
+                        <fmt:formatDate value="${post.created}" type="both" pattern='dd MMMM, EEEE, yyyy г.'/>
+                    </td>
                     <td>
                         <a href="<c:url value='/edit?id=${post.id}'/>">
                             <i class="fa fa-edit mr-3"></i>
