@@ -36,7 +36,7 @@
         <div class="text-dark"> Login as :${user.username}
             <a href="<c:url value="/login?logout=true"/>">Выход</a>
         </div>
-        <a href="<c:url value='/create'/>">Добавить инцидент</a>
+        <a href="<c:url value='/create'/>">Добавить тему</a>
     </div>
     <div class="row">
         <table class="table">
@@ -48,6 +48,7 @@
                 <th scope="col">Коментарии</th>
                 <th scope="col">Дата создания темы</th>
                 <th scope="col">Редактировать</th>
+                <th scope="col">Удалить</th>
             </tr>
             </thead>
 
@@ -67,6 +68,12 @@
                         <a href="<c:url value='/edit?id=${post.id}'/>">
                             <i class="fa fa-edit mr-3"></i>
                         </a>
+                    </td>
+                    <td>
+                        <a href="<c:url value='/delete?id=${post.id}'/>">
+                            <i class="fa fa-edit mr-3"></i>
+                        </a>
+
                     </td>
                 </tr>
             </c:forEach>

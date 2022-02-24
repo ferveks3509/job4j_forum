@@ -30,4 +30,10 @@ public class PostService {
     public Post findPostById(int id) {
         return postRepository.findById(id).get();
     }
+
+    public void deletePost(int id) {
+        Post post = new Post();
+        post.setId(id);
+        postRepository.delete(post);
+    }
 }
